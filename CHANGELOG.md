@@ -6,6 +6,10 @@ Format: one dated entry per day (`YYYY.MM.DD`), newest first.
 ## 2026.06.30
 
 ### What Changed
+- **Moved shared dotfiles into the new `kiro-wayland-dotfiles` base** — mako, hyprlock/hypridle,
+  and the waybar `colors.css`/`style.css` now come from that package (resolves the cross-edition
+  file conflict, e.g. kiro-hyprland ↔ kiro-river both owning `~/.config/mako/config`). This edition
+  now ships only its `waybar/config-<wm>.jsonc` and launches `waybar -c` against it.
 - **Initial config package** for the Kiro river edition — the classic dwm/xmonad-style dynamic
   tiler of the KIROTUX Wayland line. Ships the same waybar + mako + swaybg shell as kiro-hyprland,
   so the look and feel match; the SUPER keybind grammar is ported onto river's tag-based vocabulary.
@@ -15,6 +19,10 @@ Format: one dated entry per day (`YYYY.MM.DD`), newest first.
   best native waybar integration in the line; wayfire had to fall back to `wlr/taskbar`).
 - **pywal theming** — one wallpaper drives every colour: `set-theme.sh` runs pywal at login and
   fans the palette out to waybar, mako, and river's borders (applied live via `riverctl`).
+- **Fixed waybar appearing ~25s late at login** — the bar process started on time but its window
+  only painted after a long stall. Cause: waybar (GTK) was spawned concurrently with the dbus
+  environment setup and blocked on the at-spi accessibility bus before drawing. Now spawned as
+  `GTK_A11Y=none waybar`, which skips the a11y bus it never uses, so the bar paints immediately.
 
 ### Technical Details
 - `etc/skel/.config/river/init` is the executable config (`chmod +x`, preserved by `cp -a` in

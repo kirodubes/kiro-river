@@ -29,7 +29,9 @@ riverctl spawn "swaybg -m fill -i $HOME/.config/river/bg/kiro.jpg"
 riverctl spawn "$HOME/.config/river/scripts/set-theme.sh"
 
 # Bar, notifications, idle-lock daemon, network applet.
-riverctl spawn "waybar"
+# GTK_A11Y=none: skip the at-spi accessibility bus so waybar paints immediately
+# at login instead of stalling ~25s waiting for a bus it never uses.
+riverctl spawn "GTK_A11Y=none waybar -c $HOME/.config/waybar/config-river.jsonc"
 riverctl spawn "mako"
 riverctl spawn "hypridle"
 riverctl spawn "nm-applet --indicator"
