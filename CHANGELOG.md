@@ -3,6 +3,29 @@
 All notable changes to **kiro-river** are documented here.
 Format: one dated entry per day (`YYYY.MM.DD`), newest first.
 
+## 2026.07.01
+
+### What Changed
+- **Added Variety wallpaper-rotator autostart + keybinds.** `variety` (configured by
+  `kiro-variety-config`) now autostarts alongside the existing static `swaybg` wallpaper. Ported
+  the ohmychadwm `keybindings.txt` scheme (alt+N/P/T/F/arrows/Up/Down/W): next/previous/trash/
+  favorite/pause/resume/selector, plus alt+shift+N/P/T/F/U combos that also trigger this edition's
+  `set-theme.sh` pywal recolor (waybar + live `riverctl` border colours). `variety` +
+  `kiro-variety-config` added to `depends=()`.
+
+### Technical Details
+- riverctl's `spawn` already runs its argument through the user's shell, so the recolor combos are
+  single-quoted directly (matching the existing screenshot binds) rather than manually wrapped in
+  an extra `sh -c` — an earlier draft over-wrapped this and was corrected.
+- Verified no existing bare-Alt binds collided with alt+n/p/t/f/w/arrows before adding (only
+  `Control+Alt` combos existed on those keys).
+
+### Files Modified
+- [etc/skel/.config/river/init](etc/skel/.config/river/init)
+- [etc/skel/.config/river/scripts/autostart.sh](etc/skel/.config/river/scripts/autostart.sh)
+- [etc/skel/.config/river/keybindings.txt](etc/skel/.config/river/keybindings.txt)
+- [../KIROTUX-PKG-BUILD/kiro-river/PKGBUILD](../KIROTUX-PKG-BUILD/kiro-river/PKGBUILD)
+
 ## 2026.06.30
 
 ### What Changed

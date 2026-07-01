@@ -26,6 +26,7 @@ riverctl spawn "$HOME/.config/river/scripts/import-gsettings.sh"
 
 # Wallpaper + pywal theming (palette → waybar/mako/river borders).
 riverctl spawn "swaybg -m fill -i $HOME/.config/river/bg/kiro.jpg"
+riverctl spawn "variety"
 riverctl spawn "$HOME/.config/river/scripts/set-theme.sh"
 
 # Bar, notifications, idle-lock daemon, network applet.

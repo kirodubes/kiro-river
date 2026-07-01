@@ -143,6 +143,23 @@ do
     riverctl map $mode None XF86MonBrightnessDown spawn "brightnessctl set 5%-"
 done
 
+# ── Wallpaper (Variety) — ohmychadwm's binding scheme, ported. Shift combos also
+# recolor via pywal (set-theme.sh regenerates waybar/mako/river border colours live).
+riverctl map normal Alt N       spawn "variety --next"
+riverctl map normal Alt Right   spawn "variety --next"
+riverctl map normal Alt P       spawn "variety --previous"
+riverctl map normal Alt Left    spawn "variety --previous"
+riverctl map normal Alt T       spawn "variety --trash"
+riverctl map normal Alt F       spawn "variety --favorite"
+riverctl map normal Alt Up      spawn "variety --pause"
+riverctl map normal Alt Down    spawn "variety --resume"
+riverctl map normal Alt W       spawn "variety --selector"
+riverctl map normal Alt+Shift N spawn 'variety --next; sleep 1; ~/.config/river/scripts/set-theme.sh "$(variety --get)"'
+riverctl map normal Alt+Shift P spawn 'variety --previous; sleep 1; ~/.config/river/scripts/set-theme.sh "$(variety --get)"'
+riverctl map normal Alt+Shift T spawn 'variety --trash; sleep 1; ~/.config/river/scripts/set-theme.sh "$(variety --get)"'
+riverctl map normal Alt+Shift F spawn 'variety --favorite; sleep 1; ~/.config/river/scripts/set-theme.sh "$(variety --get)"'
+riverctl map normal Alt+Shift U spawn '~/.config/river/scripts/set-theme.sh "$(variety --get)"'
+
 # ── Screenshots ──────────────────────────────────────────────────────────────
 riverctl map normal None  Print spawn 'grim -g "$(slurp)" - | wl-copy'
 riverctl map normal $mod  Print spawn 'grim - | wl-copy'
