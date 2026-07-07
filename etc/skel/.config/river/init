@@ -165,7 +165,7 @@ riverctl map normal None  Print spawn 'grim -g "$(slurp)" - | wl-copy'
 riverctl map normal $mod  Print spawn 'grim - | wl-copy'
 
 # ── Input ────────────────────────────────────────────────────────────────────
-riverctl keyboard-layout -options "compose:caps" "be,us"
+riverctl keyboard-layout -options "grp:alt_shift_toggle,compose:caps" "us,be"
 riverctl set-repeat 40 600
 riverctl focus-follows-cursor normal
 riverctl set-cursor-warp on-focus-change
