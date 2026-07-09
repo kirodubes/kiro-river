@@ -3,6 +3,19 @@
 All notable changes to **kiro-river** are documented here.
 Format: one dated entry per day (`YYYY.MM.DD`), newest first.
 
+## 2026.07.09
+
+### README: correct waybar file + drop shared files it no longer ships
+
+**What Changed**
+- "What it ships" listed waybar `config.jsonc`/`style.css`/`colors.css`, `mako/config` and
+  `hypr/{hyprlock.conf,hypridle.conf}`. This package ships only `waybar/config-river.jsonc`; the
+  waybar `style.css`/`colors.css`, notifications (`mako`) and the hyprlock/hypridle lock come from
+  the shared `kiro-wayland-dotfiles` base (2026.06.30 extraction). README corrected.
+
+**Files Modified**
+- `README.md`
+
 ## 2026.07.07
 
 ### Keyboard: US default + Alt+Shift layout toggle

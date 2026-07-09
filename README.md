@@ -20,10 +20,10 @@ compositor-only `river`. Layout is the built-in **rivertile**; `wideriver` is an
   SUPER+F1..F12), tags, appearance, window rules, rivertile.
 - `etc/skel/.config/river/scripts/` — `autostart.sh` (session services), `set-theme.sh` (pywal),
   `import-gsettings.sh`.
-- `etc/skel/.config/waybar/` — the bar (`config.jsonc` with native river modules, `style.css`,
-  pywal-driven `colors.css`).
-- `etc/skel/.config/mako/config` — notifications.
-- `etc/skel/.config/hypr/{hyprlock.conf,hypridle.conf}` — the Wayland lock pipeline.
+- `etc/skel/.config/waybar/config-river.jsonc` — this edition's waybar layout (native `river/tags`
+  modules). The shared waybar `style.css` + pywal-driven `colors.css`, notifications (`mako`) and the
+  hyprlock/hypridle lock pipeline are **not** shipped here — they come from the shared
+  [`kiro-wayland-dotfiles`](https://github.com/kirodubes/kiro-wayland-dotfiles) base (a dependency).
 
 ## Theming — pywal
 
